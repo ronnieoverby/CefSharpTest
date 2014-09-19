@@ -2,12 +2,12 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:cef="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
-        Title="MainWindow" Height="350" Width="525">
+        Title="{Binding Title, ElementName=webView, Mode=OneWay}" Height="350" Width="525">
     <DockPanel>
         <DockPanel DockPanel.Dock="Top">
-            <Button DockPanel.Dock="Left" Command="{Binding BackCommand, ElementName=webView}">Back</Button>
-            <Button DockPanel.Dock="Left" Command="{Binding ForwardCommand, ElementName=webView}">Fwd</Button>
-            <Button DockPanel.Dock="Left" Command="{Binding ReloadCommand, ElementName=webView}">Re</Button>
+            <Button DockPanel.Dock="Left" Command="{Binding BackCommand, ElementName=webView}" ToolTip="Go Back">←</Button>
+            <Button DockPanel.Dock="Left" Command="{Binding ForwardCommand, ElementName=webView}" ToolTip="Go Forward">→</Button>
+            <Button DockPanel.Dock="Left" Command="{Binding ReloadCommand, ElementName=webView}" ToolTip="Reload">↻</Button>
             <Button DockPanel.Dock="Right" Command="{Binding GoCommand}" IsDefault="{Binding ElementName=txtAddress, Path=IsKeyboardFocused}">Go</Button>
             <TextBox x:Name="txtAddress" Text="{Binding EditableAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </DockPanel>
