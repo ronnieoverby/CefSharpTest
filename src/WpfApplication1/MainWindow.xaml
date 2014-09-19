@@ -5,8 +5,11 @@
         Title="MainWindow" Height="350" Width="525">
     <DockPanel>
         <DockPanel DockPanel.Dock="Top">
-            <Button DockPanel.Dock="Right" Command="{Binding GoCommand}">Go</Button>
-            <TextBox Text="{Binding EditableAddress, Mode=TwoWay}"/>
+            <Button DockPanel.Dock="Left" Command="{Binding BackCommand, ElementName=webView}">Back</Button>
+            <Button DockPanel.Dock="Left" Command="{Binding ForwardCommand, ElementName=webView}">Fwd</Button>
+            <Button DockPanel.Dock="Left" Command="{Binding ReloadCommand, ElementName=webView}">Re</Button>
+            <Button DockPanel.Dock="Right" Command="{Binding GoCommand}" IsDefault="{Binding ElementName=txtAddress, Path=IsKeyboardFocused}">Go</Button>
+            <TextBox x:Name="txtAddress" Text="{Binding EditableAddress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </DockPanel>
         <cef:WebView x:Name="webView" Address="{Binding Address, Mode=TwoWay}"/>
     </DockPanel>

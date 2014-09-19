@@ -5,6 +5,7 @@ namespace WpfApplication1
     public class MainViewModel : ViewModelBase
     {
         public DelegateCommand<object> GoCommand { get; private set; }
+        public DelegateCommand<object> BackCommand { get; private set; }
 
         private string _address;
         public string Address
@@ -39,7 +40,7 @@ namespace WpfApplication1
                    return goodUri;
                });
 
-            Address = "about:credits";
+            Address = "http://www.google.com";
         }
     }
 }
